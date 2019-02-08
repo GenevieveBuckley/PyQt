@@ -1,0 +1,6 @@
+pytest
+PyQt5
+scikit-image
+matplotlib
+scipy
+numpy
