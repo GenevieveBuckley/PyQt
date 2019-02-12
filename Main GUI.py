@@ -54,7 +54,7 @@ class MainWidget(QWidget):
         """Load images"""
 
         self.image_one = QLabel(self)
-        pixmap_one = QPixmap("Japan.jpg")
+        pixmap_one = QPixmap("Images\Japan.jpg")
         self.image_one.setPixmap(pixmap_one)
 
     def init_checkboxes(self):
