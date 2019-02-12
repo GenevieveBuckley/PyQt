@@ -144,42 +144,42 @@ class MainWidget(QWidget):
         """Further testing of checkbox actions"""
 
         if self.dummy_variable == 0:
-            pixmap_one = QPixmap("Japan.jpg")
+            pixmap_one = QPixmap("Images\Japan.jpg")
             self.image_one.setPixmap(pixmap_one)
             self.init_layout()
         else:
             if self.dummy_variable == 1:
-                pixmap_one = QPixmap("1.jpg")
+                pixmap_one = QPixmap("Images\_1.jpg")
                 self.image_one.setPixmap(pixmap_one)
                 self.init_layout()
             else:
                 if self.dummy_variable == 2:
-                    pixmap_one = QPixmap("2.jpg")
+                    pixmap_one = QPixmap("Images\_2.jpg")
                     self.image_one.setPixmap(pixmap_one)
                     self.init_layout()
                 else:
                     if self.dummy_variable == 3:
-                        pixmap_one = QPixmap("3.jpg")
+                        pixmap_one = QPixmap("Images\_3.jpg")
                         self.image_one.setPixmap(pixmap_one)
                         self.init_layout()
                     else:
                         if self.dummy_variable == 4:
-                            pixmap_one = QPixmap("4.jpg")
+                            pixmap_one = QPixmap("Images\_4.jpg")
                             self.image_one.setPixmap(pixmap_one)
                             self.init_layout()
                         else:
                             if self.dummy_variable == 5:
-                                pixmap_one = QPixmap("5.jpg")
+                                pixmap_one = QPixmap("Images\_5.jpg")
                                 self.image_one.setPixmap(pixmap_one)
                                 self.init_layout()
                             else:
                                 if self.dummy_variable == 6:
-                                    pixmap_one = QPixmap("6.jpg")
+                                    pixmap_one = QPixmap("Images\_6.jpg")
                                     self.image_one.setPixmap(pixmap_one)
                                     self.init_layout()
                                 else:
                                     if self.dummy_variable == 7:
-                                        pixmap_one = QPixmap("7.jpg")
+                                        pixmap_one = QPixmap("Images\_7.jpg")
                                         self.image_one.setPixmap(pixmap_one)
                                         self.init_layout()
 
