@@ -15,12 +15,12 @@ class MainWindow(QMainWindow):
         self.resize(1024, 768)
         self.title = "Fibsem GUI"
         self.setWindowTitle(self.title)
-        self.statusBar().showMessage('Ready')
 
-        self.imagevalue = MainWidget()
-        self.setCentralWidget(self.imagevalue)
+        self.centre = MainWidget()
+        self.setCentralWidget(self.centre)
 
         self.init_menu_bar()
+        self.init_status_bar()
 
     def init_menu_bar(self):
         """Set up the menu bar"""
@@ -32,6 +32,11 @@ class MainWindow(QMainWindow):
         self.menu.addMenu("Placeholder3")
 
         self.setMenuBar(self.menu)
+
+    def init_status_bar(self):
+        """Set up the status bar"""
+
+        self.statusBar().showMessage('Ready')
 
 
 class MainWidget(QWidget):
