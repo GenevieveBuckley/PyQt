@@ -64,11 +64,11 @@ class MainWidget(QWidget):
         """Create checkboxes"""
 
         self.checkbox_one = QCheckBox("Placeholder1")
-        self.checkbox_one.stateChanged.connect(self.checkbox_do_thing)
+        self.checkbox_one.stateChanged.connect(self.checkbox_do_thing1)
         self.checkbox_two = QCheckBox("Placeholder2")
-        self.checkbox_two.stateChanged.connect(self.checkbox_do_thing)
+        self.checkbox_two.stateChanged.connect(self.checkbox_do_thing2)
         self.checkbox_three = QCheckBox("Placeholder3")
-        self.checkbox_three.stateChanged.connect(self.checkbox_do_thing)
+        self.checkbox_three.stateChanged.connect(self.checkbox_do_thing3)
 
 
 
@@ -83,7 +83,26 @@ class MainWidget(QWidget):
 
         self.setLayout(layout)
 
-    def checkbox_do_thing(self, state):
+    def checkbox_do_thing1(self, state):
+        """just something to make the checkbox do something"""
+
+        self.count = self.dummy_variable
+
+        if state == Qt.Checked:
+            print('Checked')
+            self.count = self.count + 1
+            print(self.count)
+
+        else:
+            print('Unchecked')
+            self.count = self.count - 1
+            print(self.count)
+
+        self.dummy_variable = self.count
+
+        self.update_image()
+
+    def checkbox_do_thing2(self, state):
         """just something to make the checkbox do something"""
 
         self.count = self.dummy_variable
@@ -95,14 +114,74 @@ class MainWidget(QWidget):
 
         else:
             print('Unchecked')
-            self.count = self.count - 1
+            self.count = self.count - 2
             print(self.count)
 
         self.dummy_variable = self.count
 
+        self.update_image()
 
-    def change_image(self):
+    def checkbox_do_thing3(self, state):
+        """just something to make the checkbox do something"""
+
+        self.count = self.dummy_variable
+
+        if state == Qt.Checked:
+            print('Checked')
+            self.count = self.count + 4
+            print(self.count)
+
+        else:
+            print('Unchecked')
+            self.count = self.count - 4
+            print(self.count)
+
+        self.dummy_variable = self.count
+
+        self.update_image()
+
+    def update_image(self):
         """Further testing of checkbox actions"""
+
+        if self.dummy_variable == 0:
+            pixmap_one = QPixmap("Japan.jpg")
+            self.image_one.setPixmap(pixmap_one)
+            self.init_layout()
+        else:
+            if self.dummy_variable == 1:
+                pixmap_one = QPixmap("1.jpg")
+                self.image_one.setPixmap(pixmap_one)
+                self.init_layout()
+            else:
+                if self.dummy_variable == 2:
+                    pixmap_one = QPixmap("2.jpg")
+                    self.image_one.setPixmap(pixmap_one)
+                    self.init_layout()
+                else:
+                    if self.dummy_variable == 3:
+                        pixmap_one = QPixmap("3.jpg")
+                        self.image_one.setPixmap(pixmap_one)
+                        self.init_layout()
+                    else:
+                        if self.dummy_variable == 4:
+                            pixmap_one = QPixmap("4.jpg")
+                            self.image_one.setPixmap(pixmap_one)
+                            self.init_layout()
+                        else:
+                            if self.dummy_variable == 5:
+                                pixmap_one = QPixmap("5.jpg")
+                                self.image_one.setPixmap(pixmap_one)
+                                self.init_layout()
+                            else:
+                                if self.dummy_variable == 6:
+                                    pixmap_one = QPixmap("6.jpg")
+                                    self.image_one.setPixmap(pixmap_one)
+                                    self.init_layout()
+                                else:
+                                    if self.dummy_variable == 7:
+                                        pixmap_one = QPixmap("7.jpg")
+                                        self.image_one.setPixmap(pixmap_one)
+                                        self.init_layout()
 
 
 
