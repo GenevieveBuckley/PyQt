@@ -1,6 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QDialog, QVBoxLayout, QLabel
 from PyQt5.QtGui import QPixmap
+from skimage import io
 
 class MainWindow(QDialog):
     def __init__(self):
