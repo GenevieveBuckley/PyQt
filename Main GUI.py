@@ -1,5 +1,6 @@
 import sys
 
+from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import (QApplication, QCheckBox, QGridLayout, QLabel,
                              QMainWindow, QMenuBar, QWidget)
@@ -50,6 +51,8 @@ class MainWidget(QWidget):
         self.init_checkboxes()
         self.init_layout()
 
+        self.dummy_variable = 0;
+
     def init_images(self):
         """Load images"""
 
@@ -61,8 +64,13 @@ class MainWidget(QWidget):
         """Create checkboxes"""
 
         self.checkbox_one = QCheckBox("Placeholder1")
+        self.checkbox_one.stateChanged.connect(self.checkbox_do_thing)
         self.checkbox_two = QCheckBox("Placeholder2")
+        self.checkbox_two.stateChanged.connect(self.checkbox_do_thing)
         self.checkbox_three = QCheckBox("Placeholder3")
+        self.checkbox_three.stateChanged.connect(self.checkbox_do_thing)
+
+
 
     def init_layout(self):
         """Create layout"""
@@ -74,6 +82,28 @@ class MainWidget(QWidget):
         layout.addWidget(self.checkbox_three, 3, 2)
 
         self.setLayout(layout)
+
+    def checkbox_do_thing(self, state):
+        """just something to make the checkbox do something"""
+
+        self.count = self.dummy_variable
+
+        if state == Qt.Checked:
+            print('Checked')
+            self.count = self.count + 2
+            print(self.count)
+
+        else:
+            print('Unchecked')
+            self.count = self.count - 1
+            print(self.count)
+
+        self.dummy_variable = self.count
+
+
+    def change_image(self):
+        """Further testing of checkbox actions"""
+
 
 
 if __name__ == '__main__':
