@@ -48,10 +48,11 @@ class MainWidget(QWidget):
         super().__init__()
 
         self.init_images()
+        self.init_checkbox_funcs()
         self.init_checkboxes()
         self.init_layout()
 
-        self.dummy_variable = 0;
+        self.dummy_variable = 0
 
     def init_images(self):
         """Load images"""
@@ -60,17 +61,24 @@ class MainWidget(QWidget):
         pixmap_one = QPixmap("Images\Japan.jpg")
         self.image_one.setPixmap(pixmap_one)
 
+    def init_checkbox_funcs(self):
+        """Set up the functionality of the buttons"""
+
+        self.checkbox_one_func = self.checkbox_closure(1)
+        self.checkbox_two_func = self.checkbox_closure(2)
+        self.checkbox_three_func = self.checkbox_closure(4)
+
     def init_checkboxes(self):
         """Create checkboxes"""
 
         self.checkbox_one = QCheckBox("Placeholder1")
-        self.checkbox_one.stateChanged.connect(self.checkbox_do_thing1)
+        self.checkbox_one.stateChanged.connect(self.checkbox_one_func)
+
         self.checkbox_two = QCheckBox("Placeholder2")
-        self.checkbox_two.stateChanged.connect(self.checkbox_do_thing2)
+        self.checkbox_two.stateChanged.connect(self.checkbox_two_func)
+
         self.checkbox_three = QCheckBox("Placeholder3")
-        self.checkbox_three.stateChanged.connect(self.checkbox_do_thing3)
-
-
+        self.checkbox_three.stateChanged.connect(self.checkbox_three_func)
 
     def init_layout(self):
         """Create layout"""
@@ -83,62 +91,28 @@ class MainWidget(QWidget):
 
         self.setLayout(layout)
 
-    def checkbox_do_thing1(self, state):
-        """just something to make the checkbox do something"""
+    def checkbox_closure(self, n):
+        """Closure to construct button functionality"""
 
-        self.count = self.dummy_variable
+        def closure(state):
+            """Actual implementation of functionality"""
 
-        if state == Qt.Checked:
-            print('Checked')
-            self.count = self.count + 1
-            print(self.count)
+            self.count = self.dummy_variable
 
-        else:
-            print('Unchecked')
-            self.count = self.count - 1
-            print(self.count)
+            if state == Qt.Checked:
+                print('Checked')
+                self.count = self.count + n
+                print(self.count)
 
-        self.dummy_variable = self.count
+            else:
+                print('Unchecked')
+                self.count = self.count - n
+                print(self.count)
 
-        self.update_image()
+            self.dummy_variable = self.count
+            self.update_image()
 
-    def checkbox_do_thing2(self, state):
-        """just something to make the checkbox do something"""
-
-        self.count = self.dummy_variable
-
-        if state == Qt.Checked:
-            print('Checked')
-            self.count = self.count + 2
-            print(self.count)
-
-        else:
-            print('Unchecked')
-            self.count = self.count - 2
-            print(self.count)
-
-        self.dummy_variable = self.count
-
-        self.update_image()
-
-    def checkbox_do_thing3(self, state):
-        """just something to make the checkbox do something"""
-
-        self.count = self.dummy_variable
-
-        if state == Qt.Checked:
-            print('Checked')
-            self.count = self.count + 4
-            print(self.count)
-
-        else:
-            print('Unchecked')
-            self.count = self.count - 4
-            print(self.count)
-
-        self.dummy_variable = self.count
-
-        self.update_image()
+        return closure
 
     def update_image(self):
         """Further testing of checkbox actions"""
@@ -175,7 +149,6 @@ class MainWidget(QWidget):
             pixmap_one = QPixmap("Images\_7.jpg")
             self.image_one.setPixmap(pixmap_one)
             self.init_layout()
-
 
 
 if __name__ == '__main__':
